@@ -31,6 +31,7 @@ export function GET(request: Request) {
   headers.set("Content-Type", "text/plain");
   headers.set("Cache-Control", "no-cache");
   headers.set("Access-Control-Allow-Origin", "*");
+  headers.set("Content-disposition", "attachment; filename=stream.txt");
 
   return new Response(readableStream, {
     headers,
