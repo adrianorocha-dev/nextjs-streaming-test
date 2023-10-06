@@ -28,10 +28,9 @@ export function GET(request: Request) {
 
   const headers = new Headers();
 
-  headers.set("Content-Type", "text/plain");
+  headers.set("Content-Type", "application/octet-stream");
   headers.set("Cache-Control", "no-cache");
-  headers.set("Access-Control-Allow-Origin", "*");
-  headers.set("Content-disposition", "attachment; filename=stream.txt");
+  headers.set("Content-Disposition", "attachment; filename=stream-test.txt");
 
   return new Response(readableStream, {
     headers,
