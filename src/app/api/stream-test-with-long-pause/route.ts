@@ -12,12 +12,14 @@ export function GET(request: Request) {
     console.log(`${key}: ${value}`);
   });
 
+  const pauseTime = Number(params.get("pauseTime")) || 30000;
+
   const readableStream = new ReadableStream({
     async start(controller) {
       const encoder = new TextEncoder();
 
       for (let i = 0; i < 30; i++) {
-        await waitFor(i === 10 ? 30000 : 1000);
+        await waitFor(i === 10 ? pauseTime : 1000);
         controller.enqueue(encoder.encode(i.toString()));
       }
 
